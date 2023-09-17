@@ -1,4 +1,5 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.enums;
+
 
 public enum EmployeeStatus {
     ACTION(1),IN_ACTIVE(0),TERMINATED(-1);
