@@ -4,19 +4,16 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
   <persistence-unit name="www_week2" transaction-type="RESOURCE_LOCAL">
-    <class>vn.edu.iuh.fit.models.Employee</class>
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/dbSell"/>
-      <property name="javax.persistence.jdbc.user" value="root"/>
-      <property name="javax.persistence.jdbc.password" value="sapasswowrd"/>
+      <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/dbsell"/>
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+      <property name="jakarta.persistence.jdbc.password" value="sapasswowrd"/>
 
-      <property name="hibernate.archive.autodetection" value="class"/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB103Dialect"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="hbm2ddl.auto" value="create-drop"/>
+      <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+
     </properties>
   </persistence-unit>
 </persistence>

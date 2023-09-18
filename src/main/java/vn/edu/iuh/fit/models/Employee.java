@@ -3,7 +3,6 @@ package vn.edu.iuh.fit.models;
 import jakarta.persistence.*;
 import vn.edu.iuh.fit.enums.EmployeeStatus;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -16,16 +15,17 @@ public class Employee {
     private long id;
     @Column(name = "full_name",length = 150,nullable = false)
     private String fullName;
-    @Column(name = "dob")
-    private LocalDateTime dob;
+//    @Column(name = "dob")
+//    private LocalDateTime dob;
     @Column(name = "email",length = 150,nullable = true)
     private String email;
     @Column(name = "address",length = 250,nullable = false)
     private String address;
     @Column(name = "phone",length = 15,nullable = false)
     private String phone;
-    @Enumerated(EnumType.ORDINAL)
-    private EmployeeStatus status;
+//    @Enumerated(EnumType.ORDINAL)
+//    @Column(name = "status",)
+//    private EmployeeStatus status;
 
 
     public Employee() {
@@ -35,15 +35,23 @@ public class Employee {
         this.id = id;
     }
 
-    public Employee(long id, String fullName, LocalDateTime dob, String email, String address, String phone, EmployeeStatus status) {
+    public Employee(long id, String fullName, String email, String address, String phone) {
         this.id = id;
         this.fullName = fullName;
-        this.dob = dob;
         this.email = email;
         this.address = address;
         this.phone = phone;
-        this.status = status;
     }
+
+    //    public Employee(long id, String fullName, LocalDateTime dob, String email, String address, String phone, EmployeeStatus status) {
+//        this.id = id;
+//        this.fullName = fullName;
+////        this.dob = dob;
+//        this.email = email;
+//        this.address = address;
+//        this.phone = phone;
+////        this.status = status;
+//    }
 
     public long getId() {
         return id;
@@ -61,13 +69,13 @@ public class Employee {
         this.fullName = fullName;
     }
 
-    public LocalDateTime getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDateTime dob) {
-        this.dob = dob;
-    }
+//    public LocalDateTime getDob() {
+//        return dob;
+//    }
+//
+//    public void setDob(LocalDateTime dob) {
+//        this.dob = dob;
+//    }
 
     public String getEmail() {
         return email;
@@ -93,13 +101,13 @@ public class Employee {
         this.phone = phone;
     }
 
-    public EmployeeStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(EmployeeStatus status) {
-        this.status = status;
-    }
+//    public EmployeeStatus getStatus() {
+//        return status;
+//    }
+//
+//    public void setStatus(EmployeeStatus status) {
+//        this.status = status;
+//    }
 
     @Override
     public boolean equals(Object o) {

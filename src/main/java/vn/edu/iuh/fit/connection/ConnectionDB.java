@@ -9,7 +9,7 @@ public class ConnectionDB {
     private static ConnectionDB connection;
     private EntityManagerFactory emf;
 
-    public ConnectionDB(){
+    private ConnectionDB(){
         emf = Persistence.createEntityManagerFactory("www_week2");
     }
 
