@@ -26,6 +26,10 @@ dependencies {
 
   implementation 'org.mariadb.jdbc:mariadb-java-client:3.2.0'
   implementation 'org.eclipse.persistence:org.eclipse.persistence.jpa:4.0.1'
+  implementation "org.hibernate.orm:hibernate-core:6.3.0.Final"
+
+  implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.6'
+
 
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
