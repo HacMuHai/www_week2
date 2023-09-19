@@ -23,6 +23,7 @@ public class Employee {
     private String address;
     @Column(name = "phone",length = 15,nullable = false)
     private String phone;
+
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "status")
     private EmployeeStatus status;

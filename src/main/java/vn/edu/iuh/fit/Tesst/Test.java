@@ -16,7 +16,7 @@ public class Test {
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("www_week2", Collections.singletonMap("javax.persistence.jdbc.url", "jdbc:mariadb://localhost:3306/mydb"));
 //        EntityManager em = emf.createEntityManager();
 
-        EntityTransaction tran = em.getTransaction();
+        EntityTransaction  tran = em.getTransaction();
 
         try {
             tran.begin();
