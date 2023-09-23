@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import vn.edu.iuh.fit.enums.EmployeeStatus;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,7 +16,7 @@ public class Employee {
     private long id;
     @Column(name = "full_name",length = 150,nullable = false)
     private String fullName;
-    @Column(name = "dob")
+    @Column(name = "dob", nullable = false)
     private LocalDateTime dob;
     @Column(name = "email",length = 150,nullable = true)
     private String email;
@@ -25,8 +26,11 @@ public class Employee {
     private String phone;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "status")
+    @Column(nullable = false)
     private EmployeeStatus status;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Order> lstOrders;
 
 
     public Employee() {
@@ -37,7 +41,7 @@ public class Employee {
     }
 
 
-        public Employee(long id, String fullName, LocalDateTime dob, String email, String address, String phone, EmployeeStatus status) {
+    public Employee(long id, String fullName, LocalDateTime dob, String email, String address, String phone, EmployeeStatus status, List<Order> lstOrders) {
         this.id = id;
         this.fullName = fullName;
         this.dob = dob;
@@ -45,6 +49,7 @@ public class Employee {
         this.address = address;
         this.phone = phone;
         this.status = status;
+        this.lstOrders = lstOrders;
     }
 
     public long getId() {

@@ -6,6 +6,12 @@
   <persistence-unit name="www_week2" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>vn.edu.iuh.fit.models.Employee</class>
+    <class>vn.edu.iuh.fit.models.Order</class>
+    <class>vn.edu.iuh.fit.models.Customer</class>
+    <class>vn.edu.iuh.fit.models.OrderDetail</class>
+    <class>vn.edu.iuh.fit.models.Product</class>
+    <class>vn.edu.iuh.fit.models.ProductImage</class>
+    <class>vn.edu.iuh.fit.models.ProductPrice</class>
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
       <property name="jakarta.persistence.jdbc.url"
@@ -16,7 +22,7 @@
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
-<!--      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
+<!--      <property name="hibernate.hbm2ddl.auto" value="update"/>-->
 
     </properties>
   </persistence-unit>
