@@ -7,8 +7,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "employee")
+@NamedQueries({
+        @NamedQuery(name = "Employee.findOneById", query = "select e from Employee e where e.id = ?1 and e.status = 1")
+        ,@NamedQuery(name = "Employee.findAll", query = "select e from Employee e where  e.status = ?1")
+        ,@NamedQuery(name = "Employee.setStatusEmp", query = "update Employee e set e.status = ?1 WHERE e.id = ?2")
+})
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +32,7 @@ public class Employee {
     private String phone;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(nullable = false)
+    @Column(columnDefinition = "INT(11)",nullable = false)
     private EmployeeStatus status;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)

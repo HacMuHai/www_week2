@@ -3,6 +3,7 @@ package vn.edu.iuh.fit.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 @Table(name = "product_price")
@@ -21,4 +22,51 @@ public class ProductPrice {
     @JoinColumn(name = "prodcut_id", nullable = false)
     private Product product;
 
+    public ProductPrice() {
+    }
+
+    public LocalDateTime getPriceDateTime() {
+        return priceDateTime;
+    }
+
+    public void setPriceDateTime(LocalDateTime priceDateTime) {
+        this.priceDateTime = priceDateTime;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProductPrice that = (ProductPrice) o;
+        return Objects.equals(priceDateTime, that.priceDateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(priceDateTime);
+    }
 }
