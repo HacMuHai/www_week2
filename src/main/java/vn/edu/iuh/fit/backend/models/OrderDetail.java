@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 
@@ -29,9 +29,12 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(Order order, Product product) {
+    public OrderDetail(Order order, Product product, double price, double quantity, String note) {
         this.order = order;
         this.product = product;
+        this.price = price;
+        this.quantity = quantity;
+        this.note = note;
     }
 
     public Order getOrder() {

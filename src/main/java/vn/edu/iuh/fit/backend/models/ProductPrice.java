@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 
@@ -18,11 +18,20 @@ public class ProductPrice {
     @Column(name = "price",nullable = false)
     private double price;
 
+
+    @Id
     @ManyToOne
     @JoinColumn(name = "prodcut_id", nullable = false)
     private Product product;
 
     public ProductPrice() {
+    }
+
+    public ProductPrice(LocalDateTime priceDateTime, String note, double price, Product product) {
+        this.priceDateTime = priceDateTime;
+        this.note = note;
+        this.price = price;
+        this.product = product;
     }
 
     public LocalDateTime getPriceDateTime() {

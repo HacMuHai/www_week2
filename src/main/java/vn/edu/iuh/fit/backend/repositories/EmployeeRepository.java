@@ -1,11 +1,11 @@
-package vn.edu.iuh.fit.repositories;
+package vn.edu.iuh.fit.backend.repositories;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import vn.edu.iuh.fit.connection.ConnectionDB;
-import vn.edu.iuh.fit.enums.EmployeeStatus;
-import vn.edu.iuh.fit.models.Employee;
+import vn.edu.iuh.fit.backend.enums.EmployeeStatus;
+import vn.edu.iuh.fit.backend.models.Employee;
+import vn.edu.iuh.fit.backend.connection.ConnectionDB;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +29,7 @@ public class EmployeeRepository {
 
     public List<Employee> getAllEmp(){
         return  em.createNamedQuery("Employee.findAll",Employee.class)
-                .setParameter(1, EmployeeStatus.ACTION)
+                .setParameter(1, EmployeeStatus.ACTIVE)
                 .getResultList();
     }
 

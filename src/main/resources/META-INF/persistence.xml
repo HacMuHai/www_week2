@@ -4,13 +4,13 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
   <persistence-unit name="www_week2">
-    <class>vn.edu.iuh.fit.models.Employee</class>
-    <class>vn.edu.iuh.fit.models.Order</class>
-    <class>vn.edu.iuh.fit.models.Customer</class>
-    <class>vn.edu.iuh.fit.models.OrderDetail</class>
-    <class>vn.edu.iuh.fit.models.Product</class>
-    <class>vn.edu.iuh.fit.models.ProductImage</class>
-    <class>vn.edu.iuh.fit.models.ProductPrice</class>
+    <class>vn.edu.iuh.fit.backend.models.Employee</class>
+    <class>vn.edu.iuh.fit.backend.models.Order</class>
+    <class>vn.edu.iuh.fit.backend.models.Customer</class>
+    <class>vn.edu.iuh.fit.backend.models.OrderDetail</class>
+    <class>vn.edu.iuh.fit.backend.models.Product</class>
+    <class>vn.edu.iuh.fit.backend.models.ProductImage</class>
+    <class>vn.edu.iuh.fit.backend.models.ProductPrice</class>
       <properties>
           <property name="jakarta.persistence.jdbc.driver"
                     value="org.mariadb.jdbc.Driver" />
@@ -31,7 +31,7 @@
                     value="true" />
 
           <property name="hibernate.hbm2ddl.auto"
-                    value="update" />
+                    value="create-drop" />
       </properties>
   </persistence-unit>
 </persistence>

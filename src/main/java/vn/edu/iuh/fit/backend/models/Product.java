@@ -1,8 +1,7 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
-import vn.edu.iuh.fit.enums.ProductStatus;
+import vn.edu.iuh.fit.backend.enums.ProductStatus;
 
 import java.util.List;
 import java.util.Objects;
@@ -38,6 +37,14 @@ public class Product {
     private List<OrderDetail> orderDetails;
 
     public Product() {
+    }
+
+    public Product(String description, String manufacturer, String name, ProductStatus status, String unit) {
+        this.description = description;
+        this.manufacturer = manufacturer;
+        this.name = name;
+        this.status = status;
+        this.unit = unit;
     }
 
     public long getProductId() {

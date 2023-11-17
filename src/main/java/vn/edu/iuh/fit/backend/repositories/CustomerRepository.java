@@ -1,40 +1,40 @@
-package vn.edu.iuh.fit.repositories;
+package vn.edu.iuh.fit.backend.repositories;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import vn.edu.iuh.fit.connection.ConnectionDB;
-import vn.edu.iuh.fit.models.Order;
+import vn.edu.iuh.fit.backend.models.Customer;
+import vn.edu.iuh.fit.backend.connection.ConnectionDB;
 
 import java.util.List;
 import java.util.Optional;
 
-public class OrderRepository {
+public class CustomerRepository {
     private final EntityManager em;
     private EntityTransaction tran;
 
-    public OrderRepository(){
+    public CustomerRepository(){
         em = ConnectionDB.getConnection().getEntityManagerFactory().createEntityManager();
         tran = em.getTransaction();
     }
 
-    public Optional<Order> getOneById(long id){
-        TypedQuery<Order> query = em.createNamedQuery("Order.findOneById", Order.class);
+    public Optional<Customer> getOneById(long id){
+        TypedQuery<Customer> query = em.createNamedQuery("Customer.findOneById", Customer.class);
         query.setParameter(1,id);
-        Order order = query.getSingleResult();
+        Customer emp = query.getSingleResult();
 
-        return order == null ? Optional.empty() : Optional.of(order);
+        return emp == null ? Optional.empty() : Optional.of(emp);
     }
 
-    public List<Order> getAllEmp(){
-        return  em.createNamedQuery("Order.findAll",Order.class)
+    public List<Customer> getAllEmp(){
+        return  em.createNamedQuery("Customer.findAll",Customer.class)
                 .getResultList();
     }
 
-    public boolean insertEmp(Order o){
+    public boolean insertEmp(Customer c){
         try{
             tran.begin();
-            em.persist(o);
+            em.persist(c);
             tran.commit();
             return true;
         }catch (Exception ex){
@@ -44,10 +44,10 @@ public class OrderRepository {
         }
     }
 
-    public boolean updateEmp(Order o){
+    public boolean updateEmp(Customer c){
         try{
             tran.begin();
-            em.merge(o);
+            em.merge(c);
             tran.commit();
             return true;
         }catch (Exception ex){

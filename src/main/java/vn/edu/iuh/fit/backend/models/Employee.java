@@ -1,7 +1,7 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
-import vn.edu.iuh.fit.enums.EmployeeStatus;
+import vn.edu.iuh.fit.backend.enums.EmployeeStatus;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -47,15 +47,13 @@ public class Employee {
     }
 
 
-    public Employee(long id, String fullName, LocalDateTime dob, String email, String address, String phone, EmployeeStatus status, List<Order> lstOrders) {
-        this.id = id;
+    public Employee( String fullName, LocalDateTime dob, String email, String address, String phone, EmployeeStatus status) {
         this.fullName = fullName;
         this.dob = dob;
         this.email = email;
         this.address = address;
         this.phone = phone;
         this.status = status;
-        this.lstOrders = lstOrders;
     }
 
     public long getId() {

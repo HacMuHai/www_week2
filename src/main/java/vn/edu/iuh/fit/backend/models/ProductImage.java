@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,7 @@ import java.util.Objects;
 public class ProductImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "image_id", columnDefinition = "BIGINT(20)")
+    @Column(name = "image_id")
     private long imageId;
 
     @Column(name = "alternative",length = 250)
@@ -17,11 +17,18 @@ public class ProductImage {
 
     @Column(name = "path",length = 250,nullable = false)
     private String path;
+
     @ManyToOne
-    @JoinColumn(name = "product_id",unique = true)
+    @JoinColumn(name = "product_id", nullable = false)
     private  Product product;
 
     public ProductImage() {
+    }
+
+    public ProductImage(String alternative, String path, Product product) {
+        this.alternative = alternative;
+        this.path = path;
+        this.product = product;
     }
 
     public long getImageId() {

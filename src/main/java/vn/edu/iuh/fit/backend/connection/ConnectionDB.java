@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.connection;
+package vn.edu.iuh.fit.backend.connection;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

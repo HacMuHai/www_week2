@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 
@@ -32,6 +32,12 @@ public class Order {
     private List<OrderDetail> orderDetails;
 
     public Order() {
+    }
+
+    public Order(LocalDateTime orderDate, Customer customer, Employee employee) {
+        this.orderDate = orderDate;
+        this.customer = customer;
+        this.employee = employee;
     }
 
     public long getOrderId() {

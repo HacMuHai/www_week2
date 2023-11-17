@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 
@@ -34,6 +34,13 @@ public class Customer {
 
     public Customer() {
 
+    }
+
+    public Customer(String name, String address, String phone, String email) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
     }
 
     public long getId() {

@@ -1,8 +1,8 @@
-package vn.edu.iuh.fit.enums;
+package vn.edu.iuh.fit.backend.enums;
 
 
 public enum EmployeeStatus {
-    ACTION(1),IN_ACTIVE(0),TERMINATED(-1);
+    ACTIVE(1),IN_ACTIVE(0),TERMINATED(-1);
 
     private int value;
 
