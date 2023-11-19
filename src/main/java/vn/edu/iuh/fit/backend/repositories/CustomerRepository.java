@@ -26,7 +26,7 @@ public class CustomerRepository {
         return emp == null ? Optional.empty() : Optional.of(emp);
     }
 
-    public List<Customer> getAllEmp(){
+    public List<Customer> getAll(){
         return  em.createNamedQuery("Customer.findAll",Customer.class)
                 .getResultList();
     }
