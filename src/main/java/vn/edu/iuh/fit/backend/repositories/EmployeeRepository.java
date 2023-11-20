@@ -33,6 +33,11 @@ public class EmployeeRepository {
                 .getResultList();
     }
 
+    public Optional<Employee> findByID(long id){
+        Employee employee=em.find(Employee.class,id);
+        return employee==null?Optional.empty():Optional.of(employee);
+    }
+
     public boolean insertEmp(Employee e){
         try{
             tran.begin();

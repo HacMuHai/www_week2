@@ -1,7 +1,8 @@
 <%@ page import="vn.edu.iuh.fit.backend.repositories.EmployeeRepository" %>
 <%@ page import="vn.edu.iuh.fit.backend.models.Employee" %>
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.iuh.fit.backend.services.EmployeeService" %><%--
+<%@ page import="vn.edu.iuh.fit.backend.services.EmployeeService" %>
+<%@ page import="java.time.format.DateTimeFormatter" %><%--
   Created by IntelliJ IDEA.
   User: Asus
   Date: 11/17/2023
@@ -27,6 +28,8 @@
     EmployeeService employeeService = new EmployeeService();
     List<Employee> lst = employeeService.getAllEmp();
 
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
 %>
 <table width="95%" align="center" border="1">
     <tr>
@@ -44,11 +47,11 @@
         <td><%=emp.getFullName()%></td>
         <td><%=emp.getPhone()%></td>
         <td><%=emp.getEmail()%></td>
-        <td><%=emp.getDob()%></td>
+        <td><%=emp.getDob().format(formatter)%></td>
         <td><%=emp.getAddress()%></td>
         <td>
             <a href="employee?action=updateEmp&id=<%=emp.getId()%>">Update</a>
-            <a href="#">Delete</a>
+            <a href="employee?action=deleteEmp&id=<%=emp.getId()%>">Delete</a>
         </td>
         <td>
             <a href="#">Order</a>

@@ -19,7 +19,6 @@
 <%
     CustomerRepository customerRepository = new CustomerRepository();
     List<Customer> lst = customerRepository.getAll();
-
 %>
 <table width="95%" align="center" border="1">
     <tr>
@@ -28,7 +27,7 @@
         <th>Address</th>
         <th>Phone</th>
         <th>Email</th>
-        <th><a href="Employees/insertEmp.jsp">Insert</a> </th>
+        <th><a href="">Insert</a> </th>
     </tr>
     <% for(Customer cus:lst){%>
     <tr>

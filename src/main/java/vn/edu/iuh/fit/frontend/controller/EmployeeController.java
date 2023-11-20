@@ -26,7 +26,11 @@ public class EmployeeController extends HttpServlet {
                        break;
                    }
                    case "updateEmp":{
-                       resp.sendRedirect("updateEmp.jsp");
+                       employeeModel.openUpdateEmployee(req, resp);
+                       break;
+                   }
+                   case "deleteEmp":{
+                       employeeModel.deleteEmployee(req, resp);
                        break;
                    }
 
@@ -48,6 +52,10 @@ public class EmployeeController extends HttpServlet {
                 switch (action){
                     case "addEmp":{
                         employeeModel.addEmployee(req, resp);
+                        break;
+                    }
+                    case "updateEmp":{
+                        employeeModel.updateEmployee(req, resp);
                         break;
                     }
 

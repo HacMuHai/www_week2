@@ -5,6 +5,7 @@ import vn.edu.iuh.fit.backend.models.Employee;
 import vn.edu.iuh.fit.backend.repositories.EmployeeRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class EmployeeService {
     private EmployeeRepository employeeRepository;
@@ -15,6 +16,10 @@ public class EmployeeService {
 
     public List<Employee> getAllEmp(){
         return employeeRepository.getAllEmp();
+    }
+
+    public Optional<Employee> findByID(long id){
+        return employeeRepository.findByID(id);
     }
 
     public boolean insert(Employee e){
