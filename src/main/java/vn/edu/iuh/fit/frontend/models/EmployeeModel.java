@@ -51,7 +51,7 @@ public class EmployeeModel {
             resp.sendRedirect("listEmp.jsp");
         }else{
             req.getSession().setAttribute("mess","Update Employee Fail");
-            resp.sendRedirect("addEmp.jsp");
+            resp.sendRedirect("updateEmp.jsp");
         }
 
     }
@@ -80,7 +80,7 @@ public class EmployeeModel {
             resp.sendRedirect("listEmp.jsp");
         }else{
             req.getSession().setAttribute("mess","Add Employee Fail");
-            resp.sendRedirect("updateEmp.jsp");
+            resp.sendRedirect("addEmp.jsp");
         }
 
     }

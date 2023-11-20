@@ -5,6 +5,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import vn.edu.iuh.fit.backend.models.Customer;
 import vn.edu.iuh.fit.backend.connection.ConnectionDB;
+import vn.edu.iuh.fit.backend.models.Employee;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +32,8 @@ public class CustomerRepository {
                 .getResultList();
     }
 
-    public boolean insertEmp(Customer c){
+
+    public boolean insert(Customer c){
         try{
             tran.begin();
             em.persist(c);
@@ -44,7 +46,7 @@ public class CustomerRepository {
         }
     }
 
-    public boolean updateEmp(Customer c){
+    public boolean update(Customer c){
         try{
             tran.begin();
             em.merge(c);

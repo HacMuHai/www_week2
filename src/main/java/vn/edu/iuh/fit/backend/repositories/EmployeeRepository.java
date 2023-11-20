@@ -19,13 +19,6 @@ public class EmployeeRepository {
         tran = em.getTransaction();
     }
 
-    public Optional<Employee> getOneById(long id){
-        TypedQuery<Employee> query = em.createNamedQuery("Employee.findOneById", Employee.class);
-        query.setParameter(1,id);
-        Employee emp = query.getSingleResult();
-
-        return emp == null ? Optional.empty() : Optional.of(emp);
-    }
 
     public List<Employee> getAllEmp(){
         return  em.createNamedQuery("Employee.findAll",Employee.class)
