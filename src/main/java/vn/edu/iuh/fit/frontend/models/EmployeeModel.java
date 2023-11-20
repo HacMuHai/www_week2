@@ -85,4 +85,10 @@ public class EmployeeModel {
 
     }
 
+    public void openOrder(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String id = req.getParameter("id");
+        req.getSession().setAttribute("employeeId",id);
+        resp.sendRedirect("listOrder.jsp");
+    }
 }
+

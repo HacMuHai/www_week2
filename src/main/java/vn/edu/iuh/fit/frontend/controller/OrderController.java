@@ -5,14 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import vn.edu.iuh.fit.frontend.models.CustomerModel;
+import vn.edu.iuh.fit.frontend.models.OrderModel;
 
 import java.io.IOException;
 
-@WebServlet("/customer")
-public class CustomerController extends HttpServlet {
+@WebServlet("/order")
+public class OrderController extends HttpServlet {
 
-    CustomerModel customerModel = new CustomerModel();
+    OrderModel orderModel = new OrderModel();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -21,27 +21,23 @@ public class CustomerController extends HttpServlet {
            if(obj != null){
                String action = obj.toString();
                switch (action){
-                   case "listCustomer":{
-                       resp.sendRedirect("listCustomer.jsp");
+                   case "listOrder":{
+                       resp.sendRedirect("listOrder.jsp");
                        break;
                    }
-                   case "updateCustomer":{
-                       customerModel.openUpdate(req, resp);
-                       break;
-                   }
-                   case "openOrder":{
-                       customerModel.openOrder(req, resp);
+                   case "orderDetails":{
+                       orderModel.openOrderDetail(req, resp);
                        break;
                    }
                    default:{
                        req.getSession().setAttribute("mess","Fail");
-                       resp.sendRedirect("listCustomer.jsp");
+                       resp.sendRedirect("listOrder.jsp");
                        break;
                    }
 
                }
             }else{
-                resp.sendRedirect("listCustomer.jsp");
+                resp.sendRedirect("listOrder.jsp");
             }
        }catch (Exception ex){
            throw new RuntimeException(ex);
@@ -55,18 +51,18 @@ public class CustomerController extends HttpServlet {
             if(obj != null){
                 String action = obj.toString();
                 switch (action){
-                    case "addCustomer":{
-                        customerModel.addCustomer(req, resp);
+                    case "addOrder":{
+//                        orderModel.addCustomer(req, resp);
                         break;
                     }
-                    case "updateCustomer":{
-                        customerModel.updateCustomer(req, resp);
+                    case "checkout":{
+                        orderModel.checkOut(req, resp);
                         break;
                     }
 
                 }
             }else{
-                resp.sendRedirect("listCustomer.jsp");
+                resp.sendRedirect("listOrder.jsp");
             }
         }catch (Exception ex){
             throw new RuntimeException(ex);

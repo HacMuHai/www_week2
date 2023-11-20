@@ -10,6 +10,7 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = "Customer.findOneById", query = "select c from Customer c where c.id = ?1")
         ,@NamedQuery(name = "Customer.findAll", query = "select c from Customer c")
+        ,@NamedQuery(name = "Customer.findCusFirst", query = "select c from Customer c order by id limit 1")
 })
 public class Customer {
     @Id

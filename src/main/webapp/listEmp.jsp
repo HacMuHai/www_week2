@@ -54,7 +54,7 @@
             <a href="employee?action=deleteEmp&id=<%=emp.getId()%>">Delete</a>
         </td>
         <td>
-            <a href="#">Order</a>
+            <a href="employee?action=openOrder&id=<%=emp.getId()%>">Orders</a>
         </td>
     </tr>
     <%}%>

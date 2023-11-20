@@ -16,10 +16,12 @@
                 <a class="nav-link" href="customer?action=listCustomer">Customer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="prodcut?action=listPro">Product</a>
+                <a class="nav-link" href="product?action=listProduct">Product</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="order?action=listOrder">Order</a>
+            </li> <li class="nav-item">
+                <a class="nav-link" href="product?action=openCart">Cart</a>
             </li>
         </ul>
     </div>

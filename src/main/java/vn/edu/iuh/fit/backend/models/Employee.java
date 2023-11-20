@@ -14,6 +14,7 @@ import java.util.Objects;
         @NamedQuery(name = "Employee.findOneById", query = "select e from Employee e where e.id = ?1 and e.status = 1")
         ,@NamedQuery(name = "Employee.findAll", query = "select e from Employee e where  e.status = ?1")
         ,@NamedQuery(name = "Employee.setStatusEmp", query = "update Employee e set e.status = ?1 WHERE e.id = ?2")
+        ,@NamedQuery(name = "Employee.findEmpFirst", query = "select e from Employee e order by id limit 1")
 })
 public class Employee {
     @Id

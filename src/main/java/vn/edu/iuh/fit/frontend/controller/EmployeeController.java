@@ -29,6 +29,10 @@ public class EmployeeController extends HttpServlet {
                        employeeModel.openUpdateEmployee(req, resp);
                        break;
                    }
+                   case "openOrder":{
+                       employeeModel.openOrder(req, resp);
+                       break;
+                   }
                    case "deleteEmp":{
                        employeeModel.deleteEmployee(req, resp);
                        break;

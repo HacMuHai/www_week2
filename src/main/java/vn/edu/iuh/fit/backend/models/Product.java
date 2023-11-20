@@ -8,6 +8,12 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "product")
+@NamedQueries({
+        @NamedQuery(name = "Product.findOneById", query = "select p from Product p where p.id = ?1 and p.status = 1")
+        ,@NamedQuery(name = "Product.findAll", query = "select p from Product p where  p.status = ?1")
+        ,@NamedQuery(name = "Product.setStatus", query = "update Product p set p.status = ?1 WHERE p.id = ?2")
+        ,@NamedQuery(name = "Product.getPriceNew", query = "select price from ProductPrice p where  p.product.id = ?1 order by priceDateTime desc limit 1")
+})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

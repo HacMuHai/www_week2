@@ -21,7 +21,7 @@ public class OrderDetail {
     private  double price;
 
     @Column(name = "quantity",nullable = false)
-    private double quantity;
+    private int quantity;
 
     @Column(name = "note")
     private String note;
@@ -29,7 +29,7 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(Order order, Product product, double price, double quantity, String note) {
+    public OrderDetail(Order order, Product product, double price, int quantity, String note) {
         this.order = order;
         this.product = product;
         this.price = price;
@@ -61,11 +61,11 @@ public class OrderDetail {
         this.price = price;
     }
 
-    public double getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

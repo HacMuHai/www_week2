@@ -50,7 +50,7 @@
         <td><%=cus.getEmail()%></td>
         <td>
             <a href="customer?action=updateCustomer&id=<%=cus.getId()%>">Update</a>
-            <a href="">Details</a>
+            <a href="customer?action=openOrder&id=<%=cus.getId()%>">Orders</a>
         </td>
     </tr>
     <%}%>

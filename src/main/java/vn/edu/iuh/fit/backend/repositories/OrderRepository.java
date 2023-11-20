@@ -5,6 +5,7 @@ import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 import vn.edu.iuh.fit.backend.models.Order;
 import vn.edu.iuh.fit.backend.connection.ConnectionDB;
+import vn.edu.iuh.fit.backend.models.OrderDetail;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,12 +27,12 @@ public class OrderRepository {
         return order == null ? Optional.empty() : Optional.of(order);
     }
 
-    public List<Order> getAllEmp(){
+    public List<Order> getAll(){
         return  em.createNamedQuery("Order.findAll",Order.class)
                 .getResultList();
     }
 
-    public boolean insertEmp(Order o){
+    public boolean insert(Order o){
         try{
             tran.begin();
             em.persist(o);
@@ -44,7 +45,7 @@ public class OrderRepository {
         }
     }
 
-    public boolean updateEmp(Order o){
+    public boolean update(Order o){
         try{
             tran.begin();
             em.merge(o);
@@ -55,5 +56,23 @@ public class OrderRepository {
             ex.printStackTrace();
             return false;
         }
+    }
+
+    public  List<OrderDetail> getOrderDetailByOrderID(long id){
+        return em.createNamedQuery("Order.getOrderDetailById",OrderDetail.class)
+                .setParameter(1,id)
+                .getResultList();
+    }
+
+    public List<Order> getOrderByCustomerId(long id) {
+        return em.createNamedQuery("Order.getOrderByCustomerId",Order.class)
+                .setParameter(1,id)
+                .getResultList();
+    }
+
+    public List<Order> getOrderByEmployeeId(long id) {
+        return em.createNamedQuery("Order.getOrderByEmployeeId",Order.class)
+                .setParameter(1,id)
+                .getResultList();
     }
 }

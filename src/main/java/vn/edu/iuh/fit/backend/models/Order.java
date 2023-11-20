@@ -11,6 +11,9 @@ import java.util.Objects;
 @NamedQueries({
         @NamedQuery(name = "Order.findOneById", query = "select o from Order o where o.orderId = ?1")
         ,@NamedQuery(name = "Order.findAll", query = "select o from Order o")
+        ,@NamedQuery(name = "Order.getOrderDetailById", query = "select od from OrderDetail od WHERE od.order.id = ?1")
+        ,@NamedQuery(name = "Order.getOrderByCustomerId", query = "select o from Order o where o.customer.id = ?1")
+        ,@NamedQuery(name = "Order.getOrderByEmployeeId", query = "select o from Order o where o.employee.id = ?1")
 })
 public class Order {
     @Id
@@ -22,10 +25,10 @@ public class Order {
     private LocalDateTime orderDate;
 
     @ManyToOne
-    @JoinColumn(name = "cust_id",unique = true)
+    @JoinColumn(name = "cust_id")
     private Customer customer;
     @ManyToOne
-    @JoinColumn(name = "employee_id",nullable = false,unique = true)
+    @JoinColumn(name = "employee_id",nullable = false)
     private Employee employee;
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
@@ -78,6 +81,17 @@ public class Order {
 
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", orderDate=" + orderDate +
+                ", customer=" + customer +
+                ", employee=" + employee +
+                '}';
     }
 
     @Override

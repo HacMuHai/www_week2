@@ -69,4 +69,10 @@ public class CustomerModel {
             resp.sendRedirect("updateCustomer.jsp");
         }
     }
+
+    public void openOrder(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String id = req.getParameter("id");
+        req.getSession().setAttribute("customerId",id);
+        resp.sendRedirect("listOrder.jsp");
+    }
 }

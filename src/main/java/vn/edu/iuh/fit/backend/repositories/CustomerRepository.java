@@ -27,6 +27,11 @@ public class CustomerRepository {
         return emp == null ? Optional.empty() : Optional.of(emp);
     }
 
+    public Optional<Customer> findCusFirst(long id){
+        Customer customer=em.createNamedQuery("Customer.findCusFirst",Customer.class).getSingleResult();
+        return customer==null?Optional.empty():Optional.of(customer);
+    }
+
     public List<Customer> getAll(){
         return  em.createNamedQuery("Customer.findAll",Customer.class)
                 .getResultList();
