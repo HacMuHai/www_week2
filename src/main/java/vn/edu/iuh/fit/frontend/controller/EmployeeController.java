@@ -5,11 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import vn.edu.iuh.fit.frontend.models.EmployeeModel;
 
 import java.io.IOException;
 
 @WebServlet("/employee")
 public class EmployeeController extends HttpServlet {
+
+    EmployeeModel employeeModel = new EmployeeModel();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -17,11 +20,19 @@ public class EmployeeController extends HttpServlet {
             Object obj = req.getParameter("action");
            if(obj != null){
                String action = obj.toString();
-               if(action.equals("listEmp")){
-                   resp.sendRedirect("employees/listEmp.jsp");
+               switch (action){
+                   case "listEmp":{
+                       resp.sendRedirect("listEmp.jsp");
+                       break;
+                   }
+                   case "updateEmp":{
+                       resp.sendRedirect("updateEmp.jsp");
+                       break;
+                   }
+
                }
             }else{
-                resp.sendRedirect("employees/listEmp.jsp");
+                resp.sendRedirect("listEmp.jsp");
             }
        }catch (Exception ex){
            throw new RuntimeException(ex);
@@ -34,11 +45,15 @@ public class EmployeeController extends HttpServlet {
             Object obj = req.getParameter("action");
             if(obj != null){
                 String action = obj.toString();
-//                if(action.equals("listEmp")){
-//                    resp.sendRedirect("listEmp.jsp");
-//                }
+                switch (action){
+                    case "addEmp":{
+                        employeeModel.addEmployee(req, resp);
+                        break;
+                    }
+
+                }
             }else{
-                resp.sendRedirect("employees/listEmp.jsp");
+                resp.sendRedirect("listEmp.jsp");
             }
         }catch (Exception ex){
             throw new RuntimeException(ex);
