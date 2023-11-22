@@ -9,6 +9,7 @@
 <%@include file="utils/header.jsp"%>
 <%@include file="utils/navbar.jsp"%>
 
+<h1 class="text-center">Update Customer</h1>
 <%
     String mess = (String) session.getAttribute("mess");
     if (mess != null){

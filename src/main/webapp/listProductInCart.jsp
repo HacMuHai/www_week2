@@ -46,7 +46,7 @@
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
                                             <img
-                                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
+                                                    src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts"
                                                     class="img-fluid rounded-3" alt="id=<%=product.getProductId()%>">
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
@@ -99,43 +99,22 @@
                                         <h5 class="text-uppercase">
                                             items <%=listProductCart == null ? 0 : listProductCart.size()%>
                                         </h5>
-                                        <h5>€ <%=df.format(total)%>
-                                        </h5>
                                     </div>
 
-                                    <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                                    <div class="mb-4 pb-2">
-                                        <label class="form-label">€5.00</label>
-                                        <%--                                        <select class="select">--%>
-                                        <%--                                            <option value="1">Standard-Delivery- €5.00</option>--%>
-                                        <%--                                            <option value="2">Two</option>--%>
-                                        <%--                                            <option value="3">Three</option>--%>
-                                        <%--                                            <option value="4">Four</option>--%>
-                                        <%--                                        </select>--%>
-                                    </div>
-
-                                    <h5 class="text-uppercase mb-3">Give code</h5>
-
-                                    <div class="mb-5">
-                                        <div class="form-outline">
-                                            <input type="text" id="form3Examplea2"
-                                                   class="form-control form-control-lg"/>
-                                            <label class="form-label" for="form3Examplea2">Enter your code</label>
-                                        </div>
-                                    </div>
 
                                     <hr class="my-4">
 
                                     <div class="d-flex justify-content-between mb-5">
                                         <h5 class="text-uppercase">Total price</h5>
-                                        <h5>€ <%=df.format(total + 5)%>
+                                        <h5>€ <%=df.format(total)%>
                                         </h5>
                                     </div>
-                                    <button type="submit" class="btn btn-dark btn-block btn-lg"
-                                            data-mdb-ripple-color="dark" formaction="order?action=checkout"
-                                            formmethod="post"
-                                    >Check Out </button>
+                                    <form>
+                                        <button type="submit" class="btn btn-dark btn-block btn-lg"
+                                                data-mdb-ripple-color="dark" formaction="order?action=checkout"
+                                                formmethod="post"
+                                        >Check Out </button>
+                                    </form>
 
                                 </div>
                             </div>

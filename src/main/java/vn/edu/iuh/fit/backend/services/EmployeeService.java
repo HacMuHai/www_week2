@@ -18,8 +18,8 @@ public class EmployeeService {
         return employeeRepository.getAllEmp();
     }
 
-    public Optional<Employee> findEmpFirst(long id){
-        return employeeRepository.findEmpFirst(id);
+    public Optional<Employee> findEmpFirst(){
+        return employeeRepository.findEmpFirst();
     }
 
     public Optional<Employee> findByID(long id){

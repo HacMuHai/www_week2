@@ -6,6 +6,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "order_detail")
+@NamedQueries({
+        @NamedQuery(name = "OrderDetail.findAll", query = "select o from OrderDetail o")
+})
 public class OrderDetail {
     @Id
     @ManyToOne

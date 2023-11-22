@@ -3,45 +3,36 @@ package vn.edu.iuh.fit.backend.repositories;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
-import vn.edu.iuh.fit.backend.models.Customer;
 import vn.edu.iuh.fit.backend.connection.ConnectionDB;
-import vn.edu.iuh.fit.backend.models.Employee;
+import vn.edu.iuh.fit.backend.models.Order;
+import vn.edu.iuh.fit.backend.models.OrderDetail;
 
 import java.util.List;
 import java.util.Optional;
 
-public class CustomerRepository {
+public class OrderDetailRepository {
     private final EntityManager em;
     private EntityTransaction tran;
 
-    public CustomerRepository(){
+    public OrderDetailRepository(){
         em = ConnectionDB.getConnection().getEntityManagerFactory().createEntityManager();
         tran = em.getTransaction();
     }
 
-    public Optional<Customer> getOneById(long id){
-        TypedQuery<Customer> query = em.createNamedQuery("Customer.findOneById", Customer.class);
-        query.setParameter(1,id);
-        Customer emp = query.getSingleResult();
-
-        return emp == null ? Optional.empty() : Optional.of(emp);
+    public Optional<OrderDetail> getOneById(long id){
+        OrderDetail orderDetail = em.find(OrderDetail.class, id);
+        return orderDetail == null ? Optional.empty() : Optional.of(orderDetail);
     }
 
-    public Optional<Customer> findCusFirst(){
-        Customer customer=em.createNamedQuery("Customer.findCusFirst",Customer.class).getSingleResult();
-        return customer==null?Optional.empty():Optional.of(customer);
-    }
-
-    public List<Customer> getAll(){
-        return  em.createNamedQuery("Customer.findAll",Customer.class)
+    public List<OrderDetail> getAll(){
+        return  em.createNamedQuery("OrderDetail.findAll",OrderDetail.class)
                 .getResultList();
     }
 
-
-    public boolean insert(Customer c){
+    public boolean insert(OrderDetail o){
         try{
             tran.begin();
-            em.persist(c);
+            em.persist(o);
             tran.commit();
             return true;
         }catch (Exception ex){
@@ -51,10 +42,10 @@ public class CustomerRepository {
         }
     }
 
-    public boolean update(Customer c){
+    public boolean update(OrderDetail o){
         try{
             tran.begin();
-            em.merge(c);
+            em.merge(o);
             tran.commit();
             return true;
         }catch (Exception ex){
@@ -63,4 +54,5 @@ public class CustomerRepository {
             return false;
         }
     }
+
 }

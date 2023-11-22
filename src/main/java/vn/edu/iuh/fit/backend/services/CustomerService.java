@@ -17,8 +17,8 @@ public class CustomerService {
         return customerRepository.getAll();
     }
 
-    public Optional<Customer> findCusFirst(long id){
-        return customerRepository.findCusFirst(id);
+    public Optional<Customer> findCusFirst(){
+        return customerRepository.findCusFirst();
     }
     public Optional<Customer> findByID(long id){
         return customerRepository.getOneById(id);

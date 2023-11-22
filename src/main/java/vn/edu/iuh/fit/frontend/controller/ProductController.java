@@ -58,6 +58,10 @@ public class ProductController extends HttpServlet {
             if(obj != null){
                 String action = obj.toString();
                 switch (action){
+                    case "checkout":{
+                        System.out.println("p123");
+                        break;
+                    }
                     default:{
                         req.getSession().setAttribute("mess","Fail");
                         resp.sendRedirect("listProduct.jsp");

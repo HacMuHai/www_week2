@@ -31,7 +31,7 @@ public class EmployeeRepository {
         return employee==null?Optional.empty():Optional.of(employee);
     }
 
-    public Optional<Employee> findEmpFirst(long id){
+    public Optional<Employee> findEmpFirst(){
         Employee employee=em.createNamedQuery("Employee.findEmpFirst",Employee.class).getSingleResult();
         return employee==null?Optional.empty():Optional.of(employee);
     }

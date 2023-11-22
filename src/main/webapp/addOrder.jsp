@@ -9,6 +9,7 @@
 <%@include file="utils/header.jsp"%>
 <%@include file="utils/navbar.jsp"%>
 
+<h1 class="text-center">Page list Order</h1>
 <%
     String mess = (String) session.getAttribute("mess");
     if (mess != null){
@@ -22,7 +23,7 @@
 %>
 
 <div class="container">
-    <form action="customer?action=addCustomer" method="POST">
+    <form action="order?action=addOrder" method="POST">
         <div class="mb-3">
             <label for="inputFullName" class="form-label">Name</label>
             <input type="text" class="form-control" id="inputFullName"

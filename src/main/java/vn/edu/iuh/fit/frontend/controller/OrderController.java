@@ -56,6 +56,7 @@ public class OrderController extends HttpServlet {
                         break;
                     }
                     case "checkout":{
+                        System.out.println("123");
                         orderModel.checkOut(req, resp);
                         break;
                     }
